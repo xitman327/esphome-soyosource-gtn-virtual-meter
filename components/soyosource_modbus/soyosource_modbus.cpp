@@ -2,7 +2,7 @@
 #include "esphome/core/log.h"
 #include "esphome/core/helpers.h"
 
-#include <Wire.h>
+#include <Arduino.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
