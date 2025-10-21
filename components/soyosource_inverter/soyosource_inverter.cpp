@@ -4,6 +4,8 @@
 namespace esphome {
 namespace soyosource_inverter {
 
+float operation_status_id_old = 0, battery_voltage_old = 0, battery_current_old=0, ac_voltage_old = 0, ac_frequency_old = 0, temperature_old = 0;
+
 static const char *const TAG = "soyosource_inverter";
 
 static const uint8_t OPERATION_STATUS_SIZE = 13;
@@ -52,11 +54,12 @@ void SoyosourceInverter::on_soyosource_modbus_data(const std::vector<uint8_t> &d
   float ac_frequency = data[7] * 0.5f;
   float temperature = (soyosource_get_16bit(8) - 300) * 0.1f;
 
-  if (battery_power > 2500 || ac_voltage > 300 || ac_frequency > 100 || temperature > 200) {
+  // do some stuff to avoid eratic mesurements
+
+  if (battery_power > 2500 || ac_voltage > 300 || ac_frequency > 70 || temperature > 200) {
     ESP_LOGW(TAG, "'%s': Frame dropped because of unlikely measurements!", this->get_modbus_name());
     return;
   }
-
   // https://secondlifestorage.com/index.php?threads/limiter-inverter-with-rs485-load-setting.7631/
   // Soyosource status frame:          0x23 0x01 0x01 0x00 0x00 0x01 0xDB 0x00 0xA1 0x00 0xDD 0x64 0x02 0xCA 0x01
   // Full frame bytes:                   0    1    2    3    4    5    6    7    8    9   10   11   12   13   14
