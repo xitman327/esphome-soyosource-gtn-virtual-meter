@@ -2,31 +2,12 @@
 #include "esphome/core/log.h"
 #include "esphome/core/helpers.h"
 
-#include <Arduino.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-
 namespace esphome {
 namespace soyosource_modbus {
 
 static const char *const TAG = "soyosource_modbus";
 
-#define SCREEN_WIDTH 128 // OLED display width, in pixels
-#define SCREEN_HEIGHT 32 // OLED display height, in pixels
-#define OLED_RESET     -1 // Reset pin # (or -1 if sharing Arduino reset pin)
-#define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
-
 void SoyosourceModbus::setup() {
-
-  Wire.begin(5, 4);
-  display.begin();
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(SSD1306_WHITE);
-  display.println("xitos");
-  display.display();
-
   if (this->flow_control_pin_ != nullptr) {
     this->flow_control_pin_->setup();
   }
