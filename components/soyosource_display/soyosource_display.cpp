@@ -451,20 +451,20 @@ void SoyosourceDisplay::on_soyosource_settings_data_(const std::vector<uint8_t> 
 
 void SoyosourceDisplay::dump_config() {
   ESP_LOGCONFIG(TAG, "SoyosourceDisplay:");
-  LOG_SENSOR("", "Error bitmask", this->error_bitmask_sensor_);
-  LOG_TEXT_SENSOR("", "Errors", this->errors_text_sensor_);
-  LOG_SENSOR("", "Operation Mode ID", this->operation_mode_id_sensor_);
-  LOG_TEXT_SENSOR("", "Operation Mode", this->operation_mode_text_sensor_);
-  LOG_TEXT_SENSOR("", "Operation Status ID", this->operation_status_id_sensor_);
-  LOG_TEXT_SENSOR("", "Operation Status", this->operation_status_text_sensor_);
-  LOG_SENSOR("", "Battery Voltage", this->battery_voltage_sensor_);
-  LOG_SENSOR("", "Battery Current", this->battery_current_sensor_);
-  LOG_SENSOR("", "Battery Power", this->battery_power_sensor_);
-  LOG_SENSOR("", "AC Voltage", this->ac_voltage_sensor_);
-  LOG_SENSOR("", "AC Frequency", this->ac_frequency_sensor_);
-  LOG_SENSOR("", "Temperature", this->temperature_sensor_);
-  LOG_BINARY_SENSOR("", "Fan Running", this->fan_running_binary_sensor_);
-  LOG_BINARY_SENSOR("", "Limiter Connected", this->limiter_connected_binary_sensor_);
+  // LOG_SENSOR("", "Error bitmask", this->error_bitmask_sensor_);
+  // LOG_TEXT_SENSOR("", "Errors", this->errors_text_sensor_);
+  // LOG_SENSOR("", "Operation Mode ID", this->operation_mode_id_sensor_);
+  // LOG_TEXT_SENSOR("", "Operation Mode", this->operation_mode_text_sensor_);
+  // LOG_TEXT_SENSOR("", "Operation Status ID", this->operation_status_id_sensor_);
+  // LOG_TEXT_SENSOR("", "Operation Status", this->operation_status_text_sensor_);
+  // LOG_SENSOR("", "Battery Voltage", this->battery_voltage_sensor_);
+  // LOG_SENSOR("", "Battery Current", this->battery_current_sensor_);
+  // LOG_SENSOR("", "Battery Power", this->battery_power_sensor_);
+  // LOG_SENSOR("", "AC Voltage", this->ac_voltage_sensor_);
+  // LOG_SENSOR("", "AC Frequency", this->ac_frequency_sensor_);
+  // LOG_SENSOR("", "Temperature", this->temperature_sensor_);
+  // LOG_BINARY_SENSOR("", "Fan Running", this->fan_running_binary_sensor_);
+  // LOG_BINARY_SENSOR("", "Limiter Connected", this->limiter_connected_binary_sensor_);
 
   this->check_uart_settings(9600);
 }
